@@ -1,6 +1,15 @@
 import questionary
 from constants import PROJECT_MENU_CHOICES
 from db import projects_db
+from utils import print_separator, print_header
+
+
+def print_project(project):
+    print(f"ID: {project['id']}")
+    print(f"Title: {project['title']}")
+    print(f"Description: {project['description']}")
+    print(f"Created At: {project['created_at']}")
+    print_separator()
 
 
 def project_menu():
@@ -13,8 +22,14 @@ def project_menu():
 
     match project_menu_option:
         case 1:
-            for project in projects_db.get_all():
-                print(f"ID: {project['id']}, Title: {project['title']}, Description: {project['description']}")
+            projects = projects_db.get_all()
+
+            print_header("Total Projects:", len(projects))
+
+            for project in projects:
+                print_project(project)
+
+            print("")
 
         case 2:
             row = {}
