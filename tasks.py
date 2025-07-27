@@ -51,12 +51,9 @@ def task_menu():
                 default=task["priority"],
             ).ask()
 
-            projects = projects_db.get_all()
-            project_choices = [questionary.Choice(row["title"], row["id"]) for row in projects]
-
             row["projects"] = questionary.checkbox(
                 "Projects involved:",
-                choices=project_choices,
+                choices=[questionary.Choice(row["title"], row["id"]) for row in projects_db.get_all()],
                 default=task["projects"],
             ).ask()
 
