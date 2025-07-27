@@ -1,0 +1,1 @@
+This folder will keep your DB files (i.e. json files)
