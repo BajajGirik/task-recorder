@@ -1,5 +1,6 @@
 ## Introduction
 A very basic task recorder for personal use which is still a work in progress...
+The database is a json file stored in db folder for now 
 
 ## Setup
 - Install python
