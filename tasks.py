@@ -1,6 +1,16 @@
 import questionary
 from constants import TASK_MENU_CHOICES, TASK_PRIORITY_CHOICES
 from db import tasks_db, projects_db
+from utils import print_separator, print_header
+
+
+def print_task(task):
+    print(f"ID: {task['id']}")
+    print(f"Title: {task['title']}")
+    print(f"Description: {task['description']}")
+    print(f"Priority: {task['priority']}")
+    print(f"Created At: {task['created_at']}")
+    print_separator()
 
 
 def task_menu():
@@ -13,8 +23,14 @@ def task_menu():
 
     match task_menu_option:
         case 1:
-            for task in tasks_db.get_all():
-                print(f"ID: {task['id']}, Title: {task['title']}, Description: {task['description']}")
+            tasks = tasks_db.get_all()
+
+            print_header("Total Tasks:", len(tasks))
+
+            for task in tasks:
+                print_task(task)
+
+            print("")
 
         case 2:
             row = {}
