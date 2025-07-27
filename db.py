@@ -69,3 +69,7 @@ class TasksDB(DB):
 class ProjectsDB(DB):
     def __init__(self):
         super().__init__('projects')
+
+
+tasks_db = TasksDB()
+projects_db = ProjectsDB()

@@ -1,9 +1,6 @@
 import questionary
 from constants import PROJECT_MENU_CHOICES
-from db import ProjectsDB
-
-
-projects_db = ProjectsDB()
+from db import projects_db
 
 
 def project_menu():
